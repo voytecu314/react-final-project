@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "./static/js/main.56886a93.js",
+    "static/media/comet-animation-blue.gif": "./static/media/comet-animation-blue.5eaa065d311c73b7f891.gif",
+    "static/media/owl-logo.png": "./static/media/owl-logo.bba10cb76e5750a5b798.png",
+    "static/media/react.gif": "./static/media/react.85c352f79c0e82c782d1.gif",
+    "static/media/404_v2.png": "./static/media/404_v2.0d27c381fd68f587267d.png",
+    "static/media/loading.gif": "./static/media/loading.cf3e3143e87d145b7728.gif",
+    "static/media/martini-icon.png": "./static/media/martini-icon.61035fa38d5bd5ef7920.png",
+    "static/media/react-icon-15.jpg": "./static/media/react-icon-15.284ea22a33f05ce9c8a5.jpg",
+    "index.html": "./index.html",
+    "main.56886a93.js.map": "./static/js/main.56886a93.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.56886a93.js"
+  ]
+}
