@@ -83,6 +83,14 @@
                     width: 100%;
                     height: auto;
                 }
+
+                #map {
+                    height: 100%;
+                    /* The height is 400 pixels */
+                    width: 50%;
+                    /* The width is the width of the web page */
+                    display: block;
+                    }
             </style>
 
             <script>
@@ -106,7 +114,78 @@
                     })
                 })
             </script>
+            <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9RuDUwtAnj7_cLsvhHgjCa_3RqA8OoJc&callback=initMap">
+        </script>
+
+        <div id="events" style="display: none; justify-content:space-between; position: absolute; top: 15%; left: 15%; width: 70vw; height: 50vh;" className="row">
+            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div className="about_box">
+                    <span>LOGGED</span>
+                    <h2 style="text-align: center">Events<strong className="white"> MAP </strong></h2>
+                    <p></p>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <form onsubmit='submitArtistHandler()'>
+                            <br/>    <br/>    <br/>
+                        <input id='artistInp' className="form-control" placeholder="Input artist name" type="text"/>
+                        
+                        </form>
+        
+                    </div>
+                    <img id="eventImg" src="tm.png" alt="Ticket master" width="300">
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
 
 
+        
+        <script>
+            // Initialize and add the map
+            function initMap() {
+            // The location of Uluru
+            const uluru = { lat: 52.520, lng: 13.405 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 2,
+                center: { lat: 50, lng: 50  },
+            });
+            // The marker, positioned at Uluru
+
+            const marker2 = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+            }
+
+            window.initMap = initMap;
+
+            function submitArtistHandler() {
+                
+                const query = document.getElementById('artistInp').value;
+                const URL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&keyword=${query}&locale=*`;
+                
+                fetch(URL)
+                .then(res=>res.json())
+                .then(result=>{ 
+                                const map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 2,
+                                    center: { lat: 50, lng: 50  },
+                                });
+                                document.getElementById('eventImg').src = result._embedded.events[1].images[0].url;
+
+                                result._embedded.events.map(event=>{console.log(event._embedded.venues[0].location.latitude);
+                                    const x = new google.maps.Marker({position: {
+                                        lat: parseFloat(event._embedded.venues[0].location.latitude),
+                                        lng: parseFloat(event._embedded.venues[0].location.longitude)},map: map,});
+                                                
+                                                return 0});
+                                
+                                return 0; })
+                .catch(error=>console.log(error.message));
+            }
+
+
+        </script>
   </body>
 </html>

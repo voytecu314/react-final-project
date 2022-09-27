@@ -100,6 +100,8 @@ export const Exchange = () => {
                         <li><span className="float-left">Naira</span><span className="float-right">$ {rates[currencies.indexOf('NGN')]}</span></li>
                     </ul>
                     <a href="http://localhost:3000/#/exchange" onClick={()=>setDisplayTableFlag(!displayTableFlag)}>Get more</a>
+                    
+                    <ul>Last update: ({results.time_last_update_utc})</ul>
                 </div>
                 <div style={{display: displayTableFlag?'none':'block'}}>
                     <section>
@@ -117,7 +119,7 @@ export const Exchange = () => {
 
                     <br />
 
-                    <h4> equals </h4>
+                    <h2> equals </h2>
 
                     <br />
 
@@ -132,8 +134,7 @@ export const Exchange = () => {
                         </select>
 
                     </section>
-                    <br /><br /><br />
-                    <p>Last update: ({results.time_last_update_utc})</p>
+                    <br /><br /><br /><br /><br /><br /><br />
                     <a href="http://localhost:3000/#/exchange" onClick={()=>setDisplayTableFlag(!displayTableFlag)}>Go back</a>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import { Random } from '../components/Random';
 import { Login } from '../components/Login';
 import { Footer } from '../components/Footer';
 import { NotAuthorized } from "../components/NotAuthorized";
+import { EventsMap } from "../components/EventsMap";
 
 
 export const Routings = () => {
@@ -24,6 +25,7 @@ export const Routings = () => {
 
                         <Route path="/" element={<Home />} />
                         <Route path="/dictionary" element={<Dictionary />} />
+                        <Route path="/events-map" element={<EventsMap />} />
                         <Route path="/cocktails" element={<Cocktails />} />
 
                     </Routes>

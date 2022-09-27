@@ -7,7 +7,7 @@ export const DictionaryLogged = () => {
     const [result, setResult] = useState({result: null, loading: true, error: null});
 
     const TOKEN = process.env.REACT_APP_AUTH_TOKEN;
-    
+
     const client = Owlbot(TOKEN);
     
     const getWord = (e) => {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export const Sidebar = () => {
 
-    const {authorized} = useContext(MyContext);
+    const {authorized, hideMap} = useContext(MyContext);
 
   return ( <div className="sidebar">   
   
@@ -16,21 +16,24 @@ export const Sidebar = () => {
 
     <ul className="list-unstyled components">
 
-        <li className="active">
+        <li onClick={hideMap} className="active">
             <Link to="/">Home</Link>
         </li>
         
-        <li>
+        <li onClick={hideMap}>
             <Link to="/cocktails">Cocktails</Link>
         </li>
-        <li>
+        <li onClick={hideMap}>
             <Link to="/exchange">Exchange</Link>
         </li>
-        <li>
+        <li onClick={hideMap}>
             <Link to="/random">Random</Link>
         </li>
-        <li>
+        <li onClick={hideMap}>
             <Link to="/dictionary">Dictionary {authorized?'🔓':'🔒'}</Link>
+        </li>
+        <li>
+            <Link to="/events-map">Events MAP {authorized?'🔓':'🔒'}</Link>
         </li>
     </ul>
 

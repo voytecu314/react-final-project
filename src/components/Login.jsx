@@ -44,10 +44,10 @@ export const Login = () => {
                                     <div className="row">
 
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                            <input className="form-control" placeholder="User Name" type="text" name="Your Name"/>
+                                            <input className="form-control" value="User1" type="text" name="Your Name"/>
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                            <input className="form-control" placeholder="Password" type="password" name="Email"/>
+                                            <input className="form-control" value="1234" type="password" name="Email"/>
                                         </div>
                                         
                                             <div className="send" onClick={handleSubmit}

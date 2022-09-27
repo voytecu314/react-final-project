@@ -5,7 +5,7 @@ import martini from '../assets/martini-icon.png';
 
 export const Header = () => {
 
-    const {authorized, setAuthorized} = useContext(MyContext);
+    const {authorized, setAuthorized, hideMap} = useContext(MyContext);
     console.log(authorized);
 
   return (
@@ -28,7 +28,8 @@ export const Header = () => {
                                             <img style={{marginRight: '150px'}} src={martini} alt="martini icon" width="35"/>
                                         </li>} */}
                                          <li className="button_user"> 
-                                         {authorized?<a className="button" href="#/login" onClick={()=>setAuthorized(false)}>
+                                         {authorized?<a className="button" href="#/login" onClick={()=>{setAuthorized(false);
+                                                                                                        hideMap()}}>
                                          LOGOUT</a>:
                                              <a className="button" href="#/login">
                                              LOGIN</a>}
@@ -36,7 +37,7 @@ export const Header = () => {
 
                                         <li>
                                             <button type="button" id="sidebarCollapse">
-                                                <a href="#">MENU</a>
+                                                <a href="#"  onClick={hideMap}>MENU</a>
                                             </button>
                                         </li>
                                     </ul>
